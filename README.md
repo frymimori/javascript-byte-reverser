@@ -47,7 +47,7 @@ const b = {
         "bytesRadix": 16
 };
 const c = {
-        "byteLength": 8,
+        "byteMinimumLength": 8,
         "bytePrefix": "0b",
         "bytesRadix": 2,
         "dataType": "object"
@@ -89,12 +89,14 @@ This is only required if the variable `a` is a `"string"` without the property `
 
 The required property `"bytesRadix"` is a `number` defined as a numeral system base value between `2` and `36`.
 
+``` json
 {
   "byteMinimumLength": 8,
   "bytePrefix": "0b",
   "bytesRadix": 2,
   "dataType": "object"
 }
+```
 
 The optional property `"byteMinimumLength"` is a `number` defined as the minimum length for each numeral representation of bytes in the output data.
 
@@ -117,7 +119,7 @@ node test
 The output is a list of test inputs with corresponding outputs from the function `avolittyByteReverser()`.
 
 ``` javascript
-Input: avolittyUnicodeConverter([""], {"byteLength": 2, "bytePrefix": "0x", "bytesRadix": 16}, {"byteLength": 8, "bytePrefix": "0b", "bytesRadix": 2, "dataType": "object"});
+Input: avolittyByteReverser("0xab0xcd0xef", {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 8, "bytePrefix": "0b", "bytesRadix": 2, "dataType": "object"}));
 Output: [["0b11101111", "0b11001101", "0b10101011"], true]
 Passed: Yes
 ```
