@@ -9,7 +9,7 @@ const avolittyByteReverser = function(a, b, c) {
 	let h = a.length;
 	let i = b.byteLength;
 	let j = b.bytesRadix;
-	let k = c.byteLength;
+	let k = c.byteMinimumLength;
 	let l = c.bytesRadix;
 	let m = h;
 	let n = 0;
@@ -25,11 +25,6 @@ const avolittyByteReverser = function(a, b, c) {
 			(typeof a) == "string" &&
 			(typeof j) != "undefined"
 		) {
-			if (e & 1) {
-				a = "0" + a;
-				e++;
-			}
-
 			if ((typeof e) != "undefined") {
 				d[0] = a.substring(e.length).split(e);
 				h = d[0].length;
@@ -63,6 +58,11 @@ const avolittyByteReverser = function(a, b, c) {
 				}
 			} else {
 				if ((typeof i) != "undefined") {
+					if (h & 1) {
+						a = "0" + a;
+						h++;
+					}
+
 					let o = h >> 1;
 					let p = 0;
 					const q = o >> 1;
@@ -123,16 +123,16 @@ if ((typeof module) != 'undefined' && module.exports != void(0)) {
 	module.exports = avolittyByteReverser;
 }
 
-const a = "abcdefdedc";
+const a = "0xb0xcd0xef0xde0xdc";
 const b = {
-	"byteLength": 2,
-//        "bytePrefix": "0x",
+//	"byteLength": 2,
+        "bytePrefix": "0x",
         "bytesRadix": 16
 };
 const c = {
-        "byteLength": 8,
-        "bytePrefix": "0b",
-        "bytesRadix": 2,
+        "byteMinimumLength": 2,
+        "bytePrefix": "0x",
+        "bytesRadix": 16,
         "dataType": "object"
 };
 const d = avolittyByteReverser(a, b, c);
