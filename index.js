@@ -31,9 +31,7 @@ const avolittyByteReverser = function(a, b, c) {
 			}
 
 			if ((typeof e) != "undefined") {
-				let o = "";
 				d[0] = a.substring(e.length).split(e);
-				e = "";
 				h = d[0].length;
 				i = h;
 				m = h;
@@ -65,15 +63,42 @@ const avolittyByteReverser = function(a, b, c) {
 				}
 			} else {
 				if ((typeof i) != "undefined") {
-					while (h > n) {
+					let o = h >> 1;
+					let p = 0;
+					const q = o >> 1;
+					h = o;
+
+					while (p != q) {
+						o--;
+						e = parseInt(a.substring(m, m - i), j).toString(l).padStart(k, "0");
 						m -= i;
-						e = parseInt(a.substring(m, i), j).toString(l).padStart(k, "0");
-						d[0][m] = f + parseInt(a.substring(n, i), j).toString(l).padStart(k, "0");
-						d[0][n] = e;
-						n += i;
+						d[0][o] = parseInt(a.substring(n, i + n), j).toString(l).padStart(k, "0");
+
+						if (
+							Number.isNaN(d[0][o]) == false &&
+							Number.isNaN(e) == false
+						) {
+							d[0][o] = f + d[0][o];
+							d[0][p] = f + e;
+							n += i;
+							p++;
+						} else {
+							d = [
+								[],
+								false
+							];
+							h = n;
+						}
+					}
+
+					if (h & 1) {
+						d[0][p] =  f + parseInt(a.substring(n, i + n), j).toString(l).padStart(k, "0");
 					}
 				} else {
-					
+					d = [
+						[],
+						false
+					];
 				}
 			}
 		} else {
@@ -98,9 +123,10 @@ if ((typeof module) != 'undefined' && module.exports != void(0)) {
 	module.exports = avolittyByteReverser;
 }
 
-const a = "0xab0xcd0xef";
+const a = "abcdefdedc";
 const b = {
-        "bytePrefix": "0x",
+	"byteLength": 2,
+//        "bytePrefix": "0x",
         "bytesRadix": 16
 };
 const c = {
