@@ -4,8 +4,6 @@
 Avolitty - [https://avolitty.com](https://avolitty.com)
 
 #### Description
-In development.
-
 Create reverse-endian byte sequences with a fast and unique byte order reversal algorithm.
 
 - All MDN modern web browsers supported
