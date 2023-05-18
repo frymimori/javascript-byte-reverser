@@ -14,6 +14,10 @@ const avolittyByteReverser = function(a, b, c) {
 	let m = h;
 	let n = 0;
 
+	if ((typeof f) == "undefined") {
+		f = "";
+	}
+
 	if ((typeof k) == "undefined") {
 		k = 0;
 	}
