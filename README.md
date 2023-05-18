@@ -108,8 +108,6 @@ The required property `"bytesRadix"` is a `number` defined as a numeral system b
 
 The required property `"dataType"` is a `string` and the value is `"object"` or `"string"`.
 
-The return value variable `d` is an  `string` defined as the hexadecimal checksum digest.
-
 The command `node` can process a list of defined test inputs from the file [test/index.js](https://github.com/avolitty/javascript-avolitty-byte-reverser/blob/main/test.js).
 
 ``` console
