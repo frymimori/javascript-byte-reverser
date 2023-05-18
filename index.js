@@ -92,6 +92,7 @@ const avolittyByteReverser = function(a, b, c) {
 						if (h & 1) {
 							a = "0" + a;
 							h++;
+							m++;
 						}
 
 						let o = h >> 1;
@@ -156,28 +157,6 @@ const avolittyByteReverser = function(a, b, c) {
 	return d;
 }
 
-if ((typeof module) != 'undefined' && module.exports != void(0)) {
+if ((typeof module) != "undefined" && module.exports != void(0)) {
 	module.exports = avolittyByteReverser;
 }
-
-const a = [
-	"0xb",
-	"0xcd",
-	"0xef",
-	"0xde",
-	"0xdc"
-];
-//const a = "0xb0xcd0xef0xde0xdc";
-const b = {
-//	"byteLength": 2,
-        "bytePrefix": "0x",
-        "bytesRadix": 16
-};
-const c = {
-        "byteMinimumLength": 8,
-        "bytePrefix": "0x",
-        "bytesRadix": 16,
-        "dataType": "object"
-};
-const d = avolittyByteReverser(a, b, c);
-console.log(d);

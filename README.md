@@ -117,7 +117,15 @@ node test
 The output is a list of test inputs with corresponding outputs from the function `avolittyByteReverser()`.
 
 ``` javascript
-Input: avolittyByteReverser("0xab0xcd0xef", {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 8, "bytePrefix": "0b", "bytesRadix": 2, "dataType": "object"}));
+Input: avolittyByteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytePrefix": "0x", "bytesRadix": 16, "dataType": "object"});
+Output: [["0xef", "0xcd", "0xab", "0x89", "0x67", "0x45", "0x23", "0x01"], true]
+Passed: Yes
+
+Input: avolittyByteReverser("123456789abcd", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytePrefix": "0x", "bytesRadix": 16, "dataType": "string"});
+Output: [["0xcd0xab0x890x670x450x230x01"], true]
+Passed: Yes
+
+Input: avolittyByteReverser("0xab0xcd0xef", {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 8, "bytePrefix": "0b", "bytesRadix": 2, "dataType": "object"});
 Output: [["0b11101111", "0b11001101", "0b10101011"], true]
 Passed: Yes
 ```
