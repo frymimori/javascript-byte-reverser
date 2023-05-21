@@ -21,7 +21,7 @@ Create reverse-endian byte sequences with a fast and unique byte order reversal 
 
 #### License Tiers
 - Free Tier - $0 for evaluation and testing before subscribing to Paid Tier
-- Paid Tier - [$10 monthly subscription](https://avolitty.com/subscribe/) for business and personal usage
+- Paid Tier - [$1 monthly subscription](https://avolitty.com/subscribe/) for business and personal usage
 
 #### Usage
 Install the NPM module in the current directory with the command `npm install`.
