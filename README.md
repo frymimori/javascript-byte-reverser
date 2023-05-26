@@ -1,8 +1,5 @@
 ## JavaScript Avolitty Byte Reverser
 
-#### Author
-Avolitty - [https://avolitty.com](https://avolitty.com)
-
 #### Description
 Create reverse-endian byte sequences with a fast and unique byte order reversal algorithm.
 
@@ -18,10 +15,6 @@ Create reverse-endian byte sequences with a fast and unique byte order reversal 
 - Option to set byte length in input data strings instead of delimiting code unit prefixes
 - Option to set byte minimum length in output data
 - Option to set byte prefixes in both input and output data
-
-#### License Tiers
-- Free Tier - $0 for evaluation and testing before subscribing to Paid Tier
-- Paid Tier - [$1 monthly subscription](https://avolitty.com/subscribe/) for business and personal usage
 
 #### Usage
 Install the NPM module in the current directory with the command `npm install`.
