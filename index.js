@@ -1,4 +1,4 @@
-const avolittyByteReverser = function(a, b, c) {
+const byteReverser = function(a, b, c) {
 	let d = [
 		[],
 		true
@@ -161,6 +161,9 @@ const avolittyByteReverser = function(a, b, c) {
 	return d;
 }
 
-if ((typeof module) != "undefined" && module.exports != void(0)) {
-	module.exports = avolittyByteReverser;
+if (
+	(typeof module) != "undefined" &&
+	module.exports != void(0)
+) {
+	module.exports = byteReverser;
 }

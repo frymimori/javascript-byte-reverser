@@ -1,4 +1,4 @@
-## JavaScript Avolitty Byte Reverser
+## JavaScript Byte Reverser
 
 #### Description
 Create reverse-endian byte sequences with a fast and unique byte order reversal algorithm.
@@ -17,21 +17,22 @@ Create reverse-endian byte sequences with a fast and unique byte order reversal 
 - Option to set byte prefixes in both input and output data
 
 #### Usage
-Install the NPM module in the current directory with the command `npm install`.
+Clone the repository in the current directory with the command `git`.
 
 ``` console
-npm install avolitty-byte-reverser
+git clone https://github.com/frymimori/javascript-byte-reverser.git
 ```
 
-Include the module in Node.js with the function `require()`.
+Navigate to the cloned repository's root directory with the command `cd`.
 
-``` javascript
-const avolittyByteReverser = require("avolitty-byte-reverser");
+``` console
+cd javascript-byte-reverser
 ```
 
-The following example uses code from the file [test.js](https://github.com/avolitty/javascript-avolitty-byte-reverser/blob/main/test.js) to reverse byte order.
+The following example uses code from the file [test.js](https://github.com/frymimori/javascript-byte-reverser/blob/main/test.js) to reverse byte order.
 
 ``` javascript
+const byteReverser = require("./index.js");
 const a = "0xab0xcd0xef";
 const b = {
         "bytePrefix": "0x",
@@ -43,11 +44,11 @@ const c = {
         "bytesRadix": 2,
         "dataType": "object"
 };
-const d = avolittyByteReverser(a, b, c);
+const d = byteReverser(a, b, c);
 console.log(d);
 ```
 
-The function `avolittyByteReverser()` outputs a sequence of bytes in reverse order.
+The function `byteReverser()` outputs a sequence of bytes in reverse order.
 
 The return value variable `d` is an `object` with 2 values.
 
@@ -99,44 +100,68 @@ The required property `"bytesRadix"` is a `number` defined as a numeral system b
 
 The required property `"dataType"` is a `string` and the value is `"object"` or `"string"`.
 
-The command `node` can process a list of defined test inputs from the file [test/index.js](https://github.com/avolitty/javascript-avolitty-byte-reverser/blob/main/test.js).
+The command `node` can process a list of defined test inputs from the file [test.js](https://github.com/frymimori/javascript-byte-reverser/blob/main/test.js).
 
 ``` console
 node test
 ```
 
-The output is a list of test inputs with corresponding outputs from the function `avolittyByteReverser()`.
+The output is a list of test inputs with corresponding outputs from the function `byteReverser()`.
 
 ``` javascript
-Input: avolittyByteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytePrefix": "0x", "bytesRadix": 16, "dataType": "object"});
+Input: byteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytePrefix": "0x", "bytesRadix": 16, "dataType": "object"});
 Output: [["0xef", "0xcd", "0xab", "0x89", "0x67", "0x45", "0x23", "0x01"], true]
 Passed: Yes
 
-Input: avolittyByteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytesRadix": 16, "dataType": "string"});
-Output: [["efcdab8967452301"], true]
+Input: byteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytesRadix": 16, "dataType": "string"});
+Output: ["efcdab8967452301", true]
 Passed: Yes
 
-Input: avolittyByteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
-Output: [["efcdab896745231"], true]
+Input: byteReverser("123456789abcdef", {"byteLength": 2, "bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
+Output: ["efcdab896745231", true]
 Passed: Yes
 
-Input: avolittyByteReverser("123456789abcd", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytePrefix": "0x", "bytesRadix": 16, "dataType": "string"});
-Output: [["0xcd0xab0x890x670x450x230x01"], true]
+Input: byteReverser("123456789abcd", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 2, "bytePrefix": "0x", "bytesRadix": 16, "dataType": "string"});
+Output: ["0xcd0xab0x890x670x450x230x01", true]
 Passed: Yes
 
-Input: avolittyByteReverser("0xab0xcd0xef", {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 8, "bytePrefix": "0b", "bytesRadix": 2, "dataType": "object"});
+Input: byteReverser("0xab0xcd0xef", {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 8, "bytePrefix": "0b", "bytesRadix": 2, "dataType": "object"});
 Output: [["0b11101111", "0b11001101", "0b10101011"], true]
 Passed: Yes
 
-Input: avolittyByteReverser(["ab", "cd", "ef"], {"bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
-Output: [["efcdab"], true]
+Input: byteReverser(["ab", "cd", "ef"], {"bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
+Output: ["efcdab", true]
 Passed: Yes
 
-Input: avolittyByteReverser(["ab", "cd", "ef"], {"bytesRadix": 16}, {"bytesRadix": 10, "dataType": "object"});
+Input: byteReverser(["ab"], {"bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
+Output: ["ab", true]
+Passed: Yes
+
+Input: byteReverser("ab", {"byteLength": 2, "bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
+Output: ["ab", true]
+Passed: Yes
+
+Input: byteReverser("a", {"byteLength": 2, "bytesRadix": 16}, {"bytesRadix": 16, "dataType": "string"});
+Output: ["a", true]
+Passed: Yes
+
+Input: byteReverser("a", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 4, "bytesRadix": 16, "dataType": "string"});
+Output: ["000a", true]
+Passed: Yes
+
+Input: byteReverser("abc", {"byteLength": 2, "bytesRadix": 16}, {"byteMinimumLength": 4, "bytesRadix": 16, "dataType": "string"});
+Output: ["00bc000a", true]
+Passed: Yes
+
+Input: byteReverser(["ab", "cd", "ef"], {"bytesRadix": 16}, {"bytesRadix": 10, "dataType": "object"});
 Output: [["239", "205", "171"], true]
 Passed: Yes
 
-Input: avolittyByteReverser(["0xab", "0xcd", "0xef"], {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 10, "bytesRadix": 10, "dataType": "object"});
+Input: byteReverser(["ab", "cd"], {"bytesRadix": 16}, {"bytesRadix": 10, "dataType": "object"});
+Output: [["205", "171"], true]
+Passed: Yes
+
+Input: byteReverser(["0xab", "0xcd", "0xef"], {"bytePrefix": "0x", "bytesRadix": 16}, {"byteMinimumLength": 10, "bytesRadix": 10, "dataType": "object"});
 Output: [["0000000239", "0000000205", "0000000171"], true]
 Passed: Yes
 ```
