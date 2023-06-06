@@ -6,7 +6,7 @@ Create reverse-endian byte sequences with a fast and unique byte order reversal 
 - All MDN modern web browsers supported
 - Browser JavaScript and Node.js support
 - Considers C programming constraints relevant to JavaScript
-- Custom radices for input bytes and output bytes supported from 2 to 36
+- Custom radices for input bytes and output bytes supported from `2` to `36`
 - Fast byte order reversal speed
 - Minified and readable code with single-letter variable names
 - No dependencies
