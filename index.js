@@ -56,7 +56,7 @@ const byteReverser = function(a, b, c) {
 			}
 
 			if (i & 1) {
-				d[0][h] =  f + parseInt(a[h].substring(o), j).toString(l).padStart(k, "0");
+				d[0][h] = f + parseInt(a[h].substring(o), j).toString(l).padStart(k, "0");
 			}
 		} else {
 			if ((typeof a) == "string") {
@@ -89,7 +89,7 @@ const byteReverser = function(a, b, c) {
 					}
 
 					if (i & 1) {
-						d[0][h] =  f + parseInt(d[0][h], j).toString(l).padStart(k, "0");
+						d[0][h] = f + parseInt(d[0][h], j).toString(l).padStart(k, "0");
 					}
 				} else {
 					if ((typeof i) != "undefined") {
@@ -128,7 +128,7 @@ const byteReverser = function(a, b, c) {
 						}
 
 						if (h & 1) {
-							d[0][p] =  f + parseInt(a.substring(n, i + n), j).toString(l).padStart(k, "0");
+							d[0][p] = f + parseInt(a.substring(n, i + n), j).toString(l).padStart(k, "0");
 						}
 					} else {
 						d = [
