@@ -77,7 +77,7 @@ This is only required to parse `string` input data without the property `"bytePr
 
 The optional property `"bytePrefix"` is a `string` defined as a custom delimiting prefix for each numeral representation of bytes in the input data.
 
-This is only required if the variable `a` is a `"string"` without the property `"bytePrefix"`.
+This is only required if the variable `a` is a `string` without the property `"bytePrefix"`.
 
 The required property `"bytesRadix"` is a `number` defined as a numeral system base value between `2` and `36`.
 
